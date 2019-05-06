@@ -1,5 +1,9 @@
 # SME 2019 Deploying CMAF: Why, When & How
 
+## Slides
+
+https://docs.google.com/presentation/d/1YGAn-DEDU81NP28LlYr1y06ER9siYUXoMKiHf1MtriY/edit#slide=id.p
+
 ## Library Setup
 
 1. Install [FFMPEG](https://ffmpeg.org/download.html)
