@@ -59,8 +59,6 @@ Package HLS and DASH manifests.
 ./tools/Bento4/bin/mp4dash -o ./output/bento --hls --use-segment-timeline ./files/bbb_trailer_1080p_*.fmp4
 ```
 
-[Verify playback](https://hls-js.netlify.com/demo/?src=https%3A%2F%2Flocalhost%3A4200%2Foutput%2Fbento%2Fmaster.m3u8&demoConfig=eyJlbmFibGVTdHJlYW1pbmciOnRydWUsImF1dG9SZWNvdmVyRXJyb3IiOnRydWUsImVuYWJsZVdvcmtlciI6dHJ1ZSwiZHVtcGZNUDQiOmZhbHNlLCJsZXZlbENhcHBpbmciOi0xLCJsaW1pdE1ldHJpY3MiOi0xLCJ3aWRldmluZUxpY2Vuc2VVcmwiOiIifQ==)
-
 ### Shaka
 
 Package HLS and DASH manifests
