@@ -2,7 +2,11 @@
 
 ## Slides
 
+SME
 https://docs.google.com/presentation/d/1YGAn-DEDU81NP28LlYr1y06ER9siYUXoMKiHf1MtriY/edit#slide=id.p
+
+SMW
+https://docs.google.com/presentation/d/1862tti3iKDXk9TlDTB9S25S7kGFFk3WwfUB9uZa2rM4/edit#slide=id.p
 
 ## Library Setup
 
