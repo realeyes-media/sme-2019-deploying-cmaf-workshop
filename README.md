@@ -111,3 +111,25 @@ Use `https://localhost:4200/output/bento/stream.mpd` as the source
 [DASH](http://reference.dashif.org/dash.js/nightly/samples/dash-if-reference-player/index.html)
 
 Use `https://localhost:4200/output/shaka/master.mpd` as the source
+
+
+
+//////////////////////////////////////////////
+
+#WINDOW
+
+//MOV > MP4
+ffmpeg -i bbb_trailer_1080p.mov -vcodec h264 -acodec aac bbb_trailer_1080p.mp4
+
+//VIDEO > FMP4
+ffmpeg -i bbb_trailer_1080p.mp4 -movflags frag_keyframe+empty_moov+default_base_moof+faststart  -bf 2 -g 50 -sc_threshold 0 -an -strict experimental -profile:v baseline -b:v 2048k -f mp4 bbb_trailer_1080p_video.fmp4
+
+//AUDIO
+ffmpeg -i bbb_trailer_1080p.mp4 -movflags frag_keyframe+empty_moov+default_base_moof+faststart -vn -strict experimental -profile:v baseline -c:a copy -frag_duration 2000000 -f mp4 bbb_trailer_1080p_audio.fmp4
+
+//BENTO - Package hls/dash
+mp4dash -o /output/bento --hls --use-segment-timeline bbb_trailer_1080p_*.fmp4
+
+//SHAKA - Package hls/dash
+packager-win in=bbb_trailer_1080p_audio.fmp4,stream=audio,init_segment=output/shaka/audio/init.mp4,segment_template=output/shaka/audio/$Number$.m4s,playlist_name=audio/main.m3u8,hls_group_id=audio,hls_name=English in=bbb_trailer_1080p_video.fmp4,stream=video,init_segment=output/shaka/video_1080p/init.mp4,segment_template=output/shaka/video_1080p/$Number$.m4s,playlist_name=video_1080p/main.m3u8,iframe_playlist_name=video_1080p/iframe.m3u8 --segment_duration 2 --hls_master_playlist_output output/shaka/master.m3u8 --mpd_output output/shaka/master.mpd
+
